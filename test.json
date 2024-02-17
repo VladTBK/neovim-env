@@ -1,0 +1,19 @@
+{
+    "name": "John Doe",
+    "age": 30,
+    "isStudent": false,
+    "address": {
+        "street": "123 Main St",
+        "city": "Cityville",
+        "zipCode": "12345"
+    },
+    "skills": [
+        "JavaScript",
+        "HTML",
+        "CSS"
+    ],
+    "socialMedia": {
+        "twitter": "@john_doe",
+        "linkedin": "john-doe"
+    }
+}

@@ -1,0 +1,2 @@
+func himom():
+	pass
