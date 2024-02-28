@@ -1,6 +1,3 @@
-local function check_cpp(file_path)
-    return file_path:match("%.cpp$") or file_path:match("%.h$")
-end
 -------------- General -----------------
 vim.opt.nu = true
 vim.opt.relativenumber = false
@@ -39,17 +36,20 @@ vim.keymap.set("n", "<leader>pp", vim.cmd.Ex)
 vim.keymap.set('n', '<CR>', 'o<Esc>', { noremap = true, silent = true })
 
 ----- Special Harppon
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
+local harpoon = require("harpoon")
+harpoon:setup()
 
-vim.keymap.set("n", "<leader>1", function() ui.nav_file(1) end)
-vim.keymap.set("n", "<leader>2", function() ui.nav_file(2) end)
-vim.keymap.set("n", "<leader>3", function() ui.nav_file(3) end)
-vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end)
-vim.keymap.set("n", "<leader>5", function() ui.nav_file(5) end)
+vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
+    { desc = "Open harpoon window" })
 
-vim.keymap.set("n", "<C-a>", mark.add_file)
-vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
+vim.keymap.set("n", "<leader>5", function() harpoon:list():select(5) end)
+
+vim.keymap.set("n", "<C-a>", function() harpoon:list():append() end)
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
 ----- Special Fugtive
 
@@ -64,6 +64,7 @@ end)
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
 ----- Special Telescope
+----- Special Jupaitar
 
 ----- Special Nvimtree
 -- local api = require "nvim-tree.api"
@@ -80,16 +81,12 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "q", "b")
 vim.keymap.set("n", "Q", "B")
+vim.keymap.set("v", "q", "b")
+vim.keymap.set("v", "Q", "B")
 
 vim.cmd [[command! Format execute 'lua vim.lsp.buf.format()']]
 vim.keymap.set('n', '<Esc>', ':Format<CR>', { noremap = true, silent = true })
 vim.keymap.set('i', '<Esc>', '<Esc>:w<CR>:Format<CR>', { noremap = true, silent = true })
-local curr_file = vim.fn.bufname('%')
-if check_cpp(curr_file) then
-    local command = string.format('clang-format --style=gnu -i %s', vim.fn.shellescape(curr_file))
-    vim.fn.system(command)
-end
-
 
 vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
 vim.keymap.set("n", "<leader>B", ":lua require'dap'.clear_breakpoints()<CR>")

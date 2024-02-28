@@ -1,17 +1,20 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- This file can be loaded by calling `lua require('plugins')` from your init.vimPacker
 
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd("packer.nvim")
 
 return require("packer").startup(function(use)
+    -- TEMPS
+    -- use("deoplete-plugins/deoplete-clang")
+    -- jupaiter
+    -- use("luk400/vim-jukit")
+
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
     use("nvim-tree/nvim-web-devicons")
 
     use({
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.4",
-        -- or                            , branch = '0.1.x',
         requires = { { "nvim-lua/plenary.nvim" } },
     })
 
@@ -21,21 +24,24 @@ return require("packer").startup(function(use)
     })
     -- colorscheme & theme
     use("folke/tokyonight.nvim")
+
     use({
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     })
     use("p00f/nvim-ts-rainbow")
-    use("theprimeagen/harpoon")
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { { "nvim-lua/plenary.nvim" } }
+    }
+
     use({ "windwp/nvim-autopairs", "windwp/nvim-ts-autotag" })
     use("mbbill/undotree")
-
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-path")
     use("hrsh7th/cmp-cmdline")
-    use("deoplete-plugins/deoplete-clang")
-
     use({
         "akinsho/toggleterm.nvim",
         tag = "*",
@@ -59,6 +65,7 @@ return require("packer").startup(function(use)
     })
 
     use("mfussenegger/nvim-dap")
+    use("mfussenegger/nvim-dap-python")
     use('rcarriga/nvim-dap-ui')
     use('theHamsta/nvim-dap-virtual-text')
     use('nvim-telescope/telescope-dap.nvim')

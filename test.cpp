@@ -13,7 +13,6 @@ int main() {
 
     std::cout << "Before swapping: " << num1 << ", " << num2 << std::endl;
 
-
     vector<int> i = {1, 2, 3};
 
     swapNumbers(num1, num2);

@@ -13,7 +13,7 @@ require("mason").setup({})
 require("mason-lspconfig").setup({
     -- Replace the language servers listed here
     -- with the ones you want to install
-    ensure_installed = { 'pyright', 'tsserver', 'lua_ls', 'html', "jsonls", 'cssls', 'clangd' },
+    ensure_installed = { 'tsserver', 'lua_ls', 'html', 'cssls', 'clangd', 'pyright' },
     handlers = {
         lsp_zero.default_setup,
     },
@@ -71,9 +71,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require 'lspconfig'.html.setup {
     capabilities = capabilities,
 }
-require 'lspconfig'.jsonls.setup {
-    capabilities = capabilities,
-}
+-- require 'lspconfig'.jsonls.setup {
+--     capabilities = capabilities,
+-- }
 require 'lspconfig'.cssls.setup {
     capabilities = capabilities,
 }

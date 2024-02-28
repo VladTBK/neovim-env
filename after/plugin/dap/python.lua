@@ -1,1 +1,1 @@
--- require("dap-python").setup("~/.venvs/debugpy/bin/python")
+require("dap-python").setup('~/.venvs/debugpy/bin/python')
