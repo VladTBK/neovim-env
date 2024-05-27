@@ -22,7 +22,7 @@ Once you've downloaded the project, you'll find three main folders and a file:
 1. `plugin` -- not important; it updates automatically.
 2. `lua/theVlad` -- the first place Neovim looks when it starts. In 'theVlad,' you'll find 3 important files:
     - `init.lua` -- initializes the other two files based on the folder they are in (in my case, 'theVlad'; if you change the name, don't forget to make changes here also).
-    - `packer.lua` -- where all the plugins are downloaded.
+    - `pac.lua` -- where all the plugins are downloaded.
     - `set.lua` -- contains my keymaps and general options for Neovim.
 3. `after/plugin/` -- all the setups for different plugins like LSP, nvimtree, etc. Note: DAP has a separate folder for each debug configuration you need; in my case, only js/ts & python.
 
