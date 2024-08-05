@@ -11,6 +11,7 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.smartindent = true
 vim.opt.wrap = false
+vim.opt.mousemoveevent = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -35,14 +36,14 @@ vim.keymap.set("n", "<leader>pp", vim.cmd.Ex)
 -- Map Enter to create a new line and stay in Normal mode
 vim.keymap.set("n", "<CR>", "o<Esc>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>g", vim.cmd.Git)
+vim.keymap.set("n", "<leader>G", vim.cmd.Git)
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set(
-    "n",
-    "<leader>e",
-    ":Neotree source=filesystem position=left toggle=true reveal<CR>",
-    { noremap = true, silent = true }
+	"n",
+	"<leader>e",
+	":Neotree source=filesystem position=left toggle=true reveal<CR>",
+	{ noremap = true, silent = true }
 )
 ----- Docker & Database
 vim.keymap.set("n", "<leader>dk", "<cmd>lua docker_client_toggle()<CR>", { noremap = true, silent = true })
@@ -56,6 +57,7 @@ vim.keymap.set("n", "q", "b")
 vim.keymap.set("n", "Q", "B")
 
 vim.cmd([[command! Format execute 'lua vim.lsp.buf.format()']])
+
 vim.keymap.set("n", "<Esc>", ":Format<CR>", { noremap = true, silent = true })
 vim.keymap.set("i", "<Esc>", "<Esc>:w<CR>:Format<CR>", { noremap = true, silent = true })
 

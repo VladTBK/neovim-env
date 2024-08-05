@@ -6,6 +6,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{ "Hoffs/omnisharp-extended-lsp.nvim" },
 	-- TEMPS
 	-- use("deoplete-plugins/deoplete-clang")
 	-- jupaiter
@@ -55,6 +56,8 @@ require("lazy").setup({
 	{ "windwp/nvim-ts-autotag" },
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 	{ "kawre/neotab.nvim" },
+	{ "soulis-1256/eagle.nvim" },
+
 	{ -- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -70,6 +73,7 @@ require("lazy").setup({
 	-- Debugger
 	{ "mfussenegger/nvim-dap" },
 	{ "mfussenegger/nvim-dap-python" },
+	{ "mxsdev/nvim-dap-vscode-js" },
 	{ "rcarriga/nvim-dap-ui" },
 	{ "nvim-neotest/nvim-nio" },
 	{ "theHamsta/nvim-dap-virtual-text" },

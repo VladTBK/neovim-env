@@ -14,8 +14,8 @@ null_ls.setup({
 		formatting.gdformat,
 		formatting.djlint,
 		formatting.stylua,
-		formatting.biome,
 		diagnostics.djlint,
+		diagnostics.gdlint,
 		diagnostics.mypy.with({ extra_args = { "--strict", "--ignore-missing-imports" } }),
 	},
 })
